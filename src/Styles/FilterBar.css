@@ -1,0 +1,289 @@
+/* FilterBar.css */
+
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 10px;
+  border: 1px solid #dee2e6;
+  margin: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.filter-bar:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Label para o filtro */
+.filter-bar::before {
+  content: "🔍 Filtrar por:";
+  font-weight: 600;
+  color: #495057;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* Select customizado */
+.filter-bar select {
+  padding: 10px 16px;
+  border: 2px solid #ced4da;
+  border-radius: 6px;
+  background-color: white;
+  font-size: 14px;
+  color: #495057;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+.filter-bar select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.filter-bar select:hover {
+  border-color: #007bff;
+}
+
+/* Opções do select */
+.filter-bar select option {
+  padding: 8px;
+  background-color: white;
+  color: #495057;
+}
+
+.filter-bar select option:checked {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Botão de filtrar */
+.filter-bar button {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.filter-bar button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.filter-bar button:hover::before {
+  left: 100%;
+}
+
+.filter-bar button:hover {
+  background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.filter-bar button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+}
+
+/* Botão de limpar filtro */
+.filter-bar .clear-button {
+  padding: 8px 16px;
+  background: transparent;
+  color: #6c757d;
+  border: 1px solid #6c757d;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  margin-left: auto;
+}
+
+.filter-bar .clear-button:hover {
+  background-color: #6c757d;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Estado ativo do filtro */
+.filter-bar.active {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border-color: #007bff;
+}
+
+.filter-bar.active::before {
+  content: "🔍 Filtro ativo:";
+  color: #007bff;
+}
+
+/* Indicador de filtro aplicado */
+.filter-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+.filter-indicator::before {
+  content: "✓";
+  font-size: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .filter-bar::before {
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .filter-bar select {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .filter-bar button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .filter-bar .clear-button {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-bar {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .filter-bar::before {
+    font-size: 13px;
+  }
+
+  .filter-bar select,
+  .filter-bar button {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}
+
+/* Animações */
+@keyframes filterApplied {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.filter-bar.filter-applied {
+  animation: filterApplied 0.3s ease-out;
+}
+
+/* Estados de carregamento */
+.filter-bar.loading button {
+  position: relative;
+  color: transparent;
+}
+
+.filter-bar.loading button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Acessibilidade */
+.filter-bar select:focus,
+.filter-bar button:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Modo escuro (opcional) */
+@media (prefers-color-scheme: dark) {
+  .filter-bar {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    border-color: #4a5568;
+    color: #e2e8f0;
+  }
+
+  .filter-bar::before {
+    color: #e2e8f0;
+  }
+
+  .filter-bar select {
+    background-color: #2d3748;
+    color: #e2e8f0;
+    border-color: #4a5568;
+  }
+
+  .filter-bar select option {
+    background-color: #2d3748;
+    color: #e2e8f0;
+  }
+}

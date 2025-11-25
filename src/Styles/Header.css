@@ -1,0 +1,298 @@
+/* Header.css */
+
+header {
+  background: var(--bg-card);
+  box-shadow: var(--shadow-md);
+  border-bottom: 3px solid var(--primary-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Container da navegação */
+header nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  color: var(--text-primary);
+}
+
+/* Links de navegação */
+header nav a {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+/* Efeito hover nos links */
+header nav a:hover {
+  color: var(--primary-color);
+  background-color: rgba(100, 108, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+}
+
+/* Efeito de linha animada */
+header nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #3498db, #2980b9);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+header nav a:hover::after {
+  width: 80%;
+}
+
+/* Link ativo */
+header nav a.active {
+  color: var(--primary-color);
+  background-color: rgba(100, 108, 255, 0.15);
+}
+
+header nav a.active::after {
+  width: 80%;
+}
+
+/* Separadores entre links */
+header nav a:not(:last-child)::before {
+  content: "|";
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7f8c8d;
+  font-weight: 300;
+  transition: opacity 0.3s ease;
+}
+
+header nav a:hover::before,
+header nav a:hover + a::before {
+  opacity: 0;
+}
+
+/* Logo/Brand (opcional) */
+.header-brand {
+  font-size: 24px;
+  font-weight: 700;
+  color: #3498db;
+  text-decoration: none;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-brand::before {
+  content: "🍳";
+  font-size: 28px;
+}
+
+/* Menu mobile toggle */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: auto;
+}
+
+.mobile-menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #ecf0f1;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+/* Animação do menu hamburguer */
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  header nav {
+    flex-direction: column;
+    padding: 12px 20px;
+    position: relative;
+  }
+
+  .header-brand {
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    position: absolute;
+    top: 12px;
+    right: 20px;
+  }
+
+  /* Menu mobile */
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-links.active {
+    max-height: 300px;
+  }
+
+  header nav a {
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 14px;
+    width: 100%;
+    border-radius: 6px;
+  }
+
+  header nav a:not(:last-child)::before {
+    display: none;
+  }
+
+  /* Efeito slide para mobile */
+  header nav a {
+    transform: translateX(-100%);
+    opacity: 0;
+    animation: slideInLeft 0.3s ease forwards;
+  }
+
+  header nav a:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  header nav a:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  header nav a:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  header nav a:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+}
+
+@media (max-width: 480px) {
+  header nav {
+    padding: 10px 15px;
+  }
+
+  .header-brand {
+    font-size: 20px;
+  }
+
+  header nav a {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+}
+
+/* Animações */
+@keyframes slideInLeft {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Efeito de pulso no hover */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(52, 152, 219, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+  }
+}
+
+header nav a:active {
+  animation: pulse 0.6s ease-out;
+}
+
+/* Modo escuro (opcional) */
+@media (prefers-color-scheme: dark) {
+  header {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+    border-bottom-color: #4a90e2;
+  }
+
+  header nav a {
+    color: #f0f0f0;
+  }
+
+  header nav a:hover {
+    color: #4a90e2;
+    background-color: rgba(74, 144, 226, 0.1);
+  }
+
+  .mobile-menu-toggle span {
+    background-color: #f0f0f0;
+  }
+}
+
+/* Acessibilidade */
+header nav a:focus {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
+/* Efeito de loading/transição entre páginas */
+.page-transition {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-transition::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(52, 152, 219, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.page-transition.loading::before {
+  left: 100%;
+}
