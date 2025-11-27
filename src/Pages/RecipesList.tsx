@@ -67,10 +67,8 @@ const RecipesList: React.FC = () => {
   return (
     <div className="recipes-list-page">
       {" "}
-      {/* Esta é a classe principal */}
       <div className="main-container">
         {" "}
-        {/* Container do CSS global */}
         <h1>Lista de Receitas</h1>
         <p className="recipes-subtitle">
           Descubra receitas incríveis e compartilhe suas criações culinárias

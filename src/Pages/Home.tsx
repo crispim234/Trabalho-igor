@@ -11,9 +11,8 @@ const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simular carregamento e seleção de receitas populares
     const timer = setTimeout(() => {
-      setPopular(recipes.slice(0, 2)); // Simula populares
+      setPopular(recipes.slice(0, 2));
       setIsLoading(false);
     }, 800);
 
@@ -23,7 +22,6 @@ const Home: React.FC = () => {
   return (
     <div className="home-page">
       <div className="home-container">
-        {/* Seção Hero */}
         <section className="hero-section">
           <h1 className="hero-title">Bem-vindo ao Site de Receitas!</h1>
           <p className="hero-subtitle">
@@ -41,7 +39,6 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        {/* Seção de Receitas Populares */}
         <section className="popular-section">
           <h2 className="popular-title">Receitas Populares</h2>
           <p className="popular-subtitle">
@@ -85,7 +82,6 @@ const Home: React.FC = () => {
           )}
         </section>
 
-        {/* Seção de Features */}
         <section className="features-section">
           <div className="feature-card">
             <span className="feature-icon">📝</span>

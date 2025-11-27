@@ -42,7 +42,6 @@ const Contact: React.FC = () => {
 
     setIsSubmitting(true);
 
-    // Simular envio
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
     setShowSuccess(true);
@@ -50,7 +49,6 @@ const Contact: React.FC = () => {
     setErrors({});
     setIsSubmitting(false);
 
-    // Esconder mensagem de sucesso após 5 segundos
     setTimeout(() => setShowSuccess(false), 5000);
   };
 
@@ -65,7 +63,6 @@ const Contact: React.FC = () => {
     <div className="contact-page">
       <div className="main-container">
         <div className="contact-container">
-          {/* Header Section */}
           <div className="contact-header">
             <h1>Entre em Contato</h1>
             <p className="contact-subtitle">
@@ -75,7 +72,6 @@ const Contact: React.FC = () => {
           </div>
 
           <div className="contact-content">
-            {/* Formulário */}
             <div className="contact-form-section">
               {showSuccess && (
                 <div className="success-message">
@@ -206,7 +202,6 @@ const Contact: React.FC = () => {
               </form>
             </div>
 
-            {/* Informações de Contato */}
             <div className="contact-info-section">
               <h2>Outras Formas de Contato</h2>
 

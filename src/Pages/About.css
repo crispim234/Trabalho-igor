@@ -14,7 +14,6 @@
   z-index: 1;
 }
 
-/* Efeito de background decorativo */
 .about-page::before {
   content: "";
   position: absolute;
@@ -31,7 +30,6 @@
   z-index: 0;
 }
 
-/* Título principal */
 .about-page h1 {
   font-size: 2.5rem;
   color: var(--text-primary);
@@ -67,7 +65,6 @@
   border-radius: 2px;
 }
 
-/* Parágrafo principal */
 .about-page p {
   font-size: 1.2rem;
   line-height: 1.8;
@@ -79,7 +76,6 @@
   z-index: 1;
 }
 
-/* Container para conteúdo adicional */
 .about-content {
   display: grid;
   grid-template-columns: 1fr;
@@ -87,7 +83,6 @@
   margin-top: 40px;
 }
 
-/* Cards informativos */
 .info-card {
   background: var(--bg-card);
   padding: 25px;
@@ -123,7 +118,6 @@
   text-align: left;
 }
 
-/* Ícones para os cards */
 .info-card:nth-child(1) h3::before {
   content: "🎯";
   font-size: 1.5rem;
@@ -139,7 +133,6 @@
   font-size: 1.5rem;
 }
 
-/* Seção de estatísticas */
 .stats-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -218,7 +211,6 @@
   color: var(--primary-hover);
 }
 
-/* Animações */
 @keyframes bounce {
   0%,
   20%,
@@ -264,7 +256,6 @@
   animation-delay: 0.3s;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .about-container {
     padding: 30px 15px;

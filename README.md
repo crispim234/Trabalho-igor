@@ -17,9 +17,9 @@ If you are developing a production application, we recommend updating the config
 
 ```js
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(["dist"]),
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ["**/*.{ts,tsx}"],
     extends: [
       // Other configs...
 
@@ -34,18 +34,18 @@ export default defineConfig([
     ],
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
         tsconfigRootDir: import.meta.dirname,
       },
       // other options...
     },
   },
-])
+]);
 ```
 
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
+````js
 // eslint.config.js
 import reactX from 'eslint-plugin-react-x'
 import reactDom from 'eslint-plugin-react-dom'
@@ -70,4 +70,25 @@ export default defineConfig([
     },
   },
 ])
-```
+```Para rodar o Projeto React+Vite+Typescript
+    1) Pré-requisitos
+• Node.js instalado (recomendo LTS — v18+).
+• VS Code instalado.
+• Familiaridade básica com terminal (cmd/PowerShell/macOS Terminal).
+Verifique a versão do NodeJS e NPM em sua máquina com os seguintes comandos no
+terminal:
+• node -v
+• npm -v
+    2) Criar o projeto com Vite (npm)
+No terminal (escolha uma pasta onde quer o projeto):
+Usando npm:
+• npm create vite@latest meu-app -- --template react-ts
+• cd meu-app
+• npm install
+    3) Abrir no VS Code
+No terminal já na pasta do projeto:
+• code .
+    4) Rodar o servidor de desenvolvimento
+No terminal do projeto:
+• npm run dev
+````
